@@ -1,4 +1,4 @@
-# Phonebook-Management-System <img src="https://www.shutterstock.com/image-vector/phonebook-icon-vector-label-1143699791" width="30" height="30">
+# Phonebook-Management-System<img src="https://github.com/Kranthi-Guribilli/Phonebook-Management-System/blob/main/phonebook.png" width="70" height="40">
 #### Phonebook management system in C is a console application without graphics.
 ## About Phonebook Management System 🚀 :
 <p>  This Phone Book In C allows you to perform simple Phonebook operations like in your mobile. We can add, list, modify, search and delete phonebook records.</p>
