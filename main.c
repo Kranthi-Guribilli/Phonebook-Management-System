@@ -1,4 +1,7 @@
 #include<stdio.h>
+
+void add_contact();
+
 int main(){
 	int choice;
 	while(1){
@@ -16,6 +19,10 @@ int main(){
 	printf("Enter your choice:");
 	scanf("%d",&choice);
 	switch(choice){
+		case 1:
+			printf("Add New contact now");
+			add_contact();
+			break;
 	}
 }
 	return 0;
