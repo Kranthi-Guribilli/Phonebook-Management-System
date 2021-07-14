@@ -1,7 +1,4 @@
 # Phonebook-Management-System<img src="https://github.com/Kranthi-Guribilli/Phonebook-Management-System/blob/main/phonebook.png" width="70" height="40">
 #### Phonebook management system in C is a console application without graphics.
 ## About Phonebook Management System 🚀 :
-<p>  This Phone Book In C allows you to perform simple Phonebook operations like in your mobile. We can add, list, modify, search and delete phonebook records.</p>
-<p> Phonebook is a very simple mini project in C which can boosts our confidence and will help us as a reference project to functions, file handling and data structures. This application can get our hands in experience.</p>
-<p> Personal information such as name, phone number,citizenship, email and etc., are asked while adding record into the Phonebook. These records can then modified, listed, searched for and removed.</p>
-<p> I've used many functions in this mini project. These functions are easy to understand as their name itself signifies their respective operations.
+<p> This simple mini project in C creates an external file to store the user's data permanently to perform file handling operations. Phonebook is an extremely straightforward small undertaking in C that can assist you with understanding the fundamental ideas of capacities, record taking care of and information structure. This application will show you how to include, list, change or alter, look and erase information to/from  the record.</p>
