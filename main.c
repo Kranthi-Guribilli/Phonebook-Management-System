@@ -1,21 +1,16 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<conio.h>
 #include<string.h>
+#include<ctype.h>
 struct contact{
-	char firstName[35];
-	char lastName[20];
-	long int mobile_no;
-	char father_name[35];
-	char mother_name[35];
-	char address[50];
-	char gender[10];
-	char mail[100];
-	char citizen_no[20];
+	char fname[35];
+	char lname[35];
+	char mobile_no[10];
+	char tag[25];
 };
-
+void search_menu();
 void add_contact();
-
+void search();
 int main(){
 	int choice;
 	while(1){
@@ -35,8 +30,11 @@ int main(){
 		
 		switch(choice){
 			case 1:
-				printf("Add New contact now");
-				add_contact(); //Function not yet created
+				printf("Add New contact now:\n");
+				add_contact();
+				break;
+			case 4:
+				search();
 				break;
 				
 			//other cases to be added
@@ -44,31 +42,76 @@ int main(){
 }
 	return 0;
 }
+// A utility function to add new contact into the phone directory
 void add_contact(){
 	system("cls");
-	FILE *fp;
-	fp=fopen("project","a+");
+	FILE* fp;
+	fp=fopen("project1","ab+");
 	struct contact p;
-	printf("Enter the first name: ");
-	scanf("%s",&p.firstName);
-	printf("Enter the last name: ");
-	scanf("%s",&p.lastName);
-	printf("Enter the mobile number: ");
-	scanf("%ld",&p.mobile_no);
-	printf("Enter father's name: ");
-	scanf("%s",&p.father_name);
-	printf("Enter the mother's name: ");
-	scanf("%s",&p.mother_name);
-	printf("Enter the address: ");
-	scanf("%s",&p.address);
-	printf("Enter the gender: ");
-	scanf("%s",&p.gender);
-	printf("Enter gmail: ");
-	scanf("%s",&p.mail);
-	printf("Enter citizen number: ");
-	scanf("%s",&p.citizen_no);
+	printf("Enter first name: ");
+	scanf("%s",&p.fname);
+	printf("Enter last name: ");
+	scanf("%s",&p.lname);
+	printf("Enter mobile number: ");
+	scanf("%s",&p.mobile_no);
+	printf("Enter TAG: ");
+	scanf("%s",&p.tag);
+	fwrite(&p,sizeof(p),1,fp);
 	fflush(stdin);
-	printf("\nRecord Saved\n");
-	
+	printf("Successfully saved the record\n");
+	fclose(fp);
+	system("cls");
 }
 
+//A utility function to search for a contact in the directory
+void search(){
+	FILE *fp;
+	struct contact temp;
+	char phone[10];
+	int c,flag=0;
+	fp=fopen("project1","rb");
+	if(fp==NULL){
+		printf("\nError in opening\n");
+		exit(1);
+	}
+	printf("1.Search by name\n2.Search by Phone number\n");
+	scanf("%d",&c);
+	if(c==1){
+	char fname[30],lname[30];		
+	printf("Enter the name to be searched for:\n");
+	printf("Enter first name: ");
+	scanf("%s",&fname);
+	printf("Enter last name: ");
+	scanf("%s",&lname);	
+	while(fread(&temp,sizeof(temp),1,fp)==1){
+		
+		if(strcmp(strlwr(temp.fname),strlwr(fname))==0&&strcmp(strlwr(temp.lname),strlwr(lname))==0){
+			flag=1;
+			printf("\nDetail information about %s",fname);
+			printf("First name: %s\nLast name: %s\nMobile number: %s\n",temp.fname,temp.lname,temp.mobile_no);
+				break;
+			}
+		}
+		if(flag==0) printf("\nSearch not found\n");
+		fclose(fp);
+	}
+	else if(c==2){
+		printf("Enter phone number to search: ");
+		scanf("%s",&phone);
+		while(fread(&temp,sizeof(temp),1,fp)==1){
+			if(strcmp(phone,temp.mobile_no)==0){
+				flag=1;
+				printf("\n\nDetail information about %s",phone);
+				printf("\n\nFirst name: %s\nLast name: %s\nMobile number: %s\n",temp.fname,temp.lname,temp.mobile_no);
+				break;
+			}
+		}
+		if(flag==0) printf("\nSearch not found\n");
+		fclose(fp);
+	}
+	else{
+		printf("Wrong Choice!!\nPress any key to continue");
+		getch();
+		system("cls");
+	}
+}
