@@ -1,4 +1,4 @@
-=#include<stdio.h>
+#include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include<ctype.h>
@@ -10,6 +10,7 @@ struct contact{
 };
 void add_contact();
 void search();
+void delete_record();
 int main(){
 	int choice;
 	while(1){
@@ -35,7 +36,14 @@ int main(){
 			case 4:
 				search();
 				break;
-				
+			case 5:
+				delete_record();
+				break;
+			default:
+                system("cls");
+                printf("\nEnter 1 to 6 only!");
+                printf("\nEnter any key to continue!!\n");
+                getch();
 			//other cases to be added
 	}
 }
@@ -59,7 +67,9 @@ void add_contact(){
 	fflush(stdin);
 	printf("Successfully saved the record\n");
 	fclose(fp);
-	system("cls");
+	printf("Enter any key to continue.");
+	getch();
+    system("cls");
 }
 
 //A utility function to search for a contact in the directory
@@ -72,7 +82,9 @@ void search(){
 		printf("\nError in opening\n");
 		exit(1);
 	}
+	printf("\n***SEARCH MENU***\n");
 	printf("1.Search by name\n2.Search by Phone number\n");
+	printf("Enter your choice: ");
 	scanf("%d",&c);
 	if(c==1){
 	char fname[30],lname[30];		
@@ -113,4 +125,78 @@ void search(){
 		getch();
 		system("cls");
 	}
+	printf("Enter any key:");
+	getch();
+	system("cls");
+}
+// A utility function to delete record
+void delete_record(){
+	struct contact c;
+	FILE *f,*fp;
+	int flag;
+	f=fopen("project1","rb");
+	if(f==NULL){
+		printf("CONTACT'S DATA NOT ADDED YET");
+	}
+	else{
+		fp=fopen("temp","wb+");
+		if(fp==NULL)printf("Error in opening the file");
+		else{
+			
+			int choice;
+			printf("\n***DELETION MENU***\n");
+			printf("1.Deletion through mobile number\n2.Deletion through name\n");
+			printf("Enter your choice: ");
+			scanf("%d",&choice);
+			if(choice==1){
+				char mobile_no[25];
+				printf("Enter CONTACT's mobile_no:");
+				scanf("%s",&mobile_no);
+				fflush(stdin);
+				while(fread(&c,sizeof(c),1,f)==1){
+					if(strcmp(mobile_no,c.mobile_no)!=0){
+						fwrite(&c,sizeof(c),1,fp);
+					}
+					if(strcmp(mobile_no,c.mobile_no)==0){
+						flag=1;
+					}
+				}
+			}
+			else if(choice==2){
+			char fname[25],lname[25];
+			printf("Enter CONTACT's fname: ");
+			scanf("%s",&fname);
+			printf("Enter CONTACT's lname: ");
+			scanf("%s",&lname);
+			fflush(stdin);
+			while(fread(&c,sizeof(c),1,f)==1){
+				if(strcmp(strlwr(c.fname),strlwr(fname))!=0||strcmp(strlwr(c.lname),strlwr(lname))!=0){
+					fwrite(&c,sizeof(c),1,fp);
+				}
+				if(strcmp(strlwr(c.fname),strlwr(fname))==0&&strcmp(strlwr(c.lname),strlwr(lname))==0){
+					flag=1;
+				}
+			}
+		}else{
+			printf("\nWrong choice!\nEnter any key to continue");
+			getch();
+			system("cls");
+		}
+		
+			fclose(f);
+			fclose(fp);
+			if(flag!=1){
+				printf("NO CONTACT'S RECORD TO DELETE!\n");
+				remove("temp");
+			}
+			else{
+				remove("project1");
+				rename("temp","project1");
+				printf("RECORD DELETED SUCCESSFULLY!\n");
+			}
+		}
+	}
+	printf("Enter ay key:");
+	getch();
+	system("cls");
 }
