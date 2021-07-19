@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include<ctype.h>
 struct contact
 {
     char fname[15];
@@ -10,7 +9,7 @@ struct contact
     char tag[15];
 };
 typedef struct contact contact;
-
+// A utility function to add contact into the directory
 void add_contact()
 {
     system("cls");
@@ -40,7 +39,7 @@ void add_contact()
 	getch();
     system("cls");
 }
-
+// A utility function to print the no.of contacts in the directory
 int directory_info(){
     FILE *fptr;
 
@@ -49,7 +48,7 @@ int directory_info(){
 
     return ftell(fptr)/sizeof(contact);
 }
-
+// A utility function to know how many contacts are saved within a specified tag in the directory
 int tag_info(char tag[])
 {
     int num = 0;
@@ -65,6 +64,7 @@ int tag_info(char tag[])
     return num;
 }
 
+//A utility function to display the contacts
 void display()
 {
     system("cls");
@@ -115,7 +115,7 @@ void display()
 	getch();
     system("cls");
 }
-
+//This is a utility function which displays all the contacts which are saved within a specified tag
 void display_by_tag()
 {
     system("cls");
@@ -150,7 +150,7 @@ void display_by_tag()
     system("cls");
 }
 
-
+// A utility function to modify a cotact
 void modify_contact()
 {
     system("cls");
@@ -238,7 +238,7 @@ void modify_contact()
 	getch();
     system("cls");
 }
-
+//A utility function to search for the info of a specified contact
 void search_contact(){
 	system("cls");
 	FILE *fp;
@@ -309,6 +309,7 @@ void search_contact(){
 	system("cls");
 }
 
+//A utility function to delete a contact from the directory
 void delete_contact(){
 	contact cn;
 	FILE *fptr,*fptr1;
@@ -387,7 +388,7 @@ void delete_contact(){
 	system("cls");
 }
 
-
+//Driver code
 int main()
 {
     int operation = 1;
