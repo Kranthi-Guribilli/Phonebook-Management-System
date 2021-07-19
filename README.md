@@ -12,7 +12,7 @@
 4. **void display();**         -------> *It's a utility function to display all contacts within the directory*
 5. **int directory_info();**   -------> *It's a utility function to find out the total no.of contacts in the directory*
 6. **void display_by_tag();**  -------> *It's a utility function to display all the contacts with the specified tag*
-7. **int tag_info();**         -------> *It's a utility function to find out the tool no.of contacts that are saved in specified tag*
+7. **int tag_info();**         -------> *It's a utility function to find out the total no.of contacts that are saved in specified tag*
 8. **void delete_contact();**  -------> *It's a utility function to delete a contact from the directory*<br>
 * ### void add_contact();
 Source Code :
