@@ -6,7 +6,7 @@ Phonebook management system in C is a console application without graphics.
   We have used many functions in this project. These functions are very easy to understand as their name itself signifies their respective operations.<br>
 ## [A quick link to the complete source code of the project](https://github.com/Kranthi-Guribilli/Phonebook-Management-System/blob/main/PhoneBook.c)<br>
 ## Functions that are used in this project:
-1. [void add_contact():](#void_add_contact():)     -------> *It's a utility function to add a contact into the directory*
+1. [void add_contact():](# void_add_contact():)     -------> *It's a utility function to add a contact into the directory*
 2. [void search_contact():](#void_search_contact():)  -------> *It's a utility function to search for a contact*
 3. [void modify_contact():](#void_modify_contact():)   -------> *It's a utility function to modify a contact*
 4. [void display():](#void_display():)         -------> *It's a utility function to display all contacts within the directory*
