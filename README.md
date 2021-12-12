@@ -15,7 +15,7 @@ Phonebook management system in C is a console application without graphics.
 7. [int tag_info():](#TagInfo)          -------> *It's a utility function to find out the total no.of contacts that are saved in specified tag*
 8. [void delete_contact():](#DeleteContact)   -------> *It's a utility function to delete a contact from the directory*<br>
 
-### AddContact
+### AddContact():
 Source Code :
 ```c
 void add_contact()
