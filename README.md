@@ -6,16 +6,16 @@ Phonebook management system in C is a console application without graphics.
   We have used many functions in this project. These functions are very easy to understand as their name itself signifies their respective operations.<br>
 ## [A quick link to the complete source code of the project](https://github.com/Kranthi-Guribilli/Phonebook-Management-System/blob/main/PhoneBook.c)<br>
 ## Functions that are used in this project:
-1. [void add_contact():](#voidAddContact)     -------> *It's a utility function to add a contact into the directory*
-2. [void search_contact():](#void search_contact():)  -------> *It's a utility function to search for a contact*
-3. [void modify_contact():](#void modify_contact():)   -------> *It's a utility function to modify a contact*
-4. [void display():](#void display():)         -------> *It's a utility function to display all contacts within the directory*
-5. [int directory_info():](#void directory_info():)   -------> *It's a utility function to find out the total no.of contacts in the directory*
-6. [void display_by_tag():](#void display_by_tag():)   -------> *It's a utility function to display all the contacts with the specified tag*
-7. [int tag_info():](#void tag_info():)          -------> *It's a utility function to find out the total no.of contacts that are saved in specified tag*
-8. [void delete_contact():](#void delete_contact():)   -------> *It's a utility function to delete a contact from the directory*<br>
+1. [void add_contact():](#AddContact)     -------> *It's a utility function to add a contact into the directory*
+2. [void search_contact():](#SearchContact)  -------> *It's a utility function to search for a contact*
+3. [void modify_contact():](#ModifyContact)   -------> *It's a utility function to modify a contact*
+4. [void display():](#Display)         -------> *It's a utility function to display all contacts within the directory*
+5. [int directory_info():](#DirectoryInfo)   -------> *It's a utility function to find out the total no.of contacts in the directory*
+6. [void display_by_tag():](#DisplayByTag)   -------> *It's a utility function to display all the contacts with the specified tag*
+7. [int tag_info():](#TagInfo)          -------> *It's a utility function to find out the total no.of contacts that are saved in specified tag*
+8. [void delete_contact():](#DeleteContact)   -------> *It's a utility function to delete a contact from the directory*<br>
 
-### voidAddContact
+### AddContact
 Source Code :
 ```c
 void add_contact()
@@ -48,7 +48,7 @@ void add_contact()
     system("cls");
 }
 ```
- ### void search_contact():
+### SearchContact():
 Source Code :
 ```c
 void search_contact(){
@@ -121,7 +121,7 @@ void search_contact(){
 	system("cls");
 }
 ```
- ### void modify_contact():
+### ModifyContact():
 Source Code :
 ```c
 void modify_contact()
@@ -212,7 +212,7 @@ void modify_contact()
     system("cls");
 }
 ```
- ### void display():
+### Display():
 Source Code :
 ```c
 void display()
@@ -266,7 +266,7 @@ void display()
     system("cls");
 }
 ```
- ### int directory_info():
+### DirectoryInfo():
  Source Code :
  ```c
 int directory_info(){
@@ -279,7 +279,7 @@ int directory_info(){
 }
 ```
 
- ###  void display_by_tag():
+###  DisplayByTag():
 Source Code :
 ```c
 void display_by_tag()
@@ -314,8 +314,8 @@ void display_by_tag()
 	getch();
     system("cls");
 }
-```
- ### int tag_info():
+``` 
+### TagInfo():
 Source Code :
 ```c
 int tag_info(char tag[])
@@ -333,7 +333,7 @@ int tag_info(char tag[])
     return num;
 }
 ```
- ### void delete_contact():
+### DeleteContact():
 Source Code :
 ```c
 void delete_contact(){
