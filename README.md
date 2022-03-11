@@ -1,3 +1,7 @@
+![](https://img.shields.io/badge/Project-PhoneBook-yellow.svg)
+![](https://img.shields.io/badge/ProjectType-ConsoleApp-green.svg)
+![](https://img.shields.io/badge/Programming_Language-c-blue.svg)
+
 # Phonebook-Management-System
 Phonebook management system in C is a console application without graphics.
 ## About Phonebook Management System 🚀 :
